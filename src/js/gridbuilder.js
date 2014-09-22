@@ -8,7 +8,7 @@ var gridbuilder = (function () {
             styles,
             html;
 
-        columnUnit = (100-columnGap*(numberOfColumns-1))/numberOfColumns;
+        columnUnit = (100 - columnGap * (numberOfColumns-1))/numberOfColumns;
 
         for (var i = 1; i < numberOfColumns; i++) {
             result[i + ''] = columnUnit*i + columnGap*(i - 1);
