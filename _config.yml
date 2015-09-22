@@ -3,7 +3,7 @@ title: Grid Builder | Jeremias Menichelli
 author: Jeremias Menichelli
 description: "Tool to help you calculate fluid grids very easily and download the result."
 url: "http://jeremenichelli.github.io/gridbuilder"
-baseurl: ""
+baseurl: gridbuilder
 
 # build settings
 port: 5000
