@@ -1,55 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Grid Builder</title>
-    <link rel="stylesheet" href="assets/css/styles.min.css">
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="column twelve">
-                <h1>Grid Builder
-                    <span class="author">by Jeremias Menichelli</span>
-                </h1>
-                <p>Choose a number of columns for your grid and the space between the columns in percent to create a fluid grid. Each column needs the <em>.column</em> class and another one for the width it needs to cover, for example <em>.column-2</em>. All columns must be wrapped in a <em>.row</em> div element. I'm also using Eric Meyer's CSS Reset to make sure the grid looks the same in all browsers.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="column twelve">
-                <form action="?">
-                    <fieldset>
-                        <div class="form-row">
-                            <label for="columns">Number of columns</label>
-                            <input id="columns" type="text">
-                        </div>
-                        <div class="form-row">
-                            <label for="gap">Space between columns</label>
-                            <input id="gap" type="text">
-                        </div>
-                        <input type="submit" value= "Build" id="submit"><span class="indication">... you can also press Enter to build</span>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-        <div class="row styles">
-            <h2>Styles</h2>
-            <pre><code id="styles-show">         
-            </code></pre>
-        </div>
-        <div class="row grid">
-            <h2>Grid</h2>
-            <div id="grid-show" class="row"></div>
+---
+layout: default
+---
+<section class="home--main">
+    <div class="row">
+        <div class="col col-six">
+            <p>Choose a number of columns for your grid and the space between the them (in percent) and click <strong>BUILD</strong> to create a fluid grid. Each column needs the <code>.column</code> class and another one for the width it needs to cover, for example <code>.column-2</code>. All columns must be wrapped in a <code>.row</code> div element.</p>
+            <p>After you've built your grid you will be able to see a preview of it with the generated styles and you can click the <strong>DOWNLOAD</strong> button to get a <code>.css</code> file with everything set.</p>
         </div>
     </div>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <p><a href="http://jeremenichelli.github.io/gridbuilder">http://jeremenichelli.github.io/gridbuilder</a> | Grid Builder by <a href="http://jeremenichelli.github.io">Jeremias&nbsp;Menichelli</a> &reg;&nbsp;All&nbsp;rights&nbsp;reserved.</p>
-            </div>
+    <div class="row">
+        <div class="col col-six">
+            <form action="?">
+                <fieldset>
+                    <div class="form-row">
+                        <label for="columns">Number of columns</label>
+                        <input id="columns" type="text">
+                    </div>
+                    <div class="form-row">
+                        <label for="gap">Space between columns</label>
+                        <input id="gap" type="text">
+                        <span>%</span>
+                    </div>
+                    <button id="submit">
+                        <i class="icon-build"></i>
+                        Build
+                    </button>
+                    <span class="indication">... you can also press Enter to build</span>
+                </fieldset>
+            </form>
         </div>
-    </footer>
-    <script src="assets/js/gridbuilder.min.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic' rel='stylesheet' type='text/css'>
-</body>
-</html>
+    </div>
+    <div class="row styles">
+        <h2>Styles</h2>
+        <pre><code id="styles-show">         
+        </code></pre>
+    </div>
+    <div class="row grid">
+        <h2>Grid</h2>
+        <div id="grid-show" class="row"></div>
+    </div>
+    <a href="" id="download" class="download-btn" download="grid.css">
+        <i class="icon-download"></i>
+        Download
+    </a>
+</section>
