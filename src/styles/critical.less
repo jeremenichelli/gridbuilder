@@ -67,15 +67,6 @@ button#submit {
     line-height: 21px;
 }
 
-.icon-build {
-    background-image: url("../assets/img/icon-build.svg");
-    background-size: cover;
-    display: inline-block;
-    vertical-align: bottom;
-    height: 21px;
-    width: 21px;
-}
-
 .download-btn {
     display: none;
 }
@@ -237,12 +228,33 @@ header {
         font-size: 14px;
     }
 
+    .indication {
+        display: none;
+    }
+
+    header {
+
+        .col-three {
+
+            + .col-three {
+                margin-top: 20px;
+            }
+        }
+    }
+
     .logo {
         font-size: 28px;
+        float: none;
     }
 
     .logo--job {
         font-size: .5em;
+    }
+
+    label {
+        font-size: 16px;
+        margin-right: 5px;
+        min-width: 0;
     }
 
     h1 {

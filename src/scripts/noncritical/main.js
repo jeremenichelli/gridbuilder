@@ -127,6 +127,7 @@
                 } else {
                     alert('You must fill both fields with valid number values');
                 }
+                return false;
             }, false);
         };
 
