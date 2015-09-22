@@ -81,65 +81,62 @@
 
     })();
 
-    // view model controller
-    var viewModel = (function () {
-        var styleElement = _doc.createElement('style'),
-            styleShow = _doc.getElementById('styles-show'),
-            gridShow = _doc.getElementById('grid-show'),
-            grid = _doc.querySelector('.grid'),
-            styles = _doc.querySelector('.styles');
+    var styleElement = _doc.createElement('style'),
+        styleShow = _doc.getElementById('styles-show'),
+        gridShow = _doc.getElementById('grid-show'),
+        grid = _doc.querySelector('.grid'),
+        styles = _doc.querySelector('.styles');
 
-        _doc.head.appendChild(styleElement);
-        
-        var _formController = function () {
-            var columnsInput = _doc.getElementById('columns'),
-                gapInput = _doc.getElementById('gap'),
-                submitButton = _doc.getElementById('submit'),
-                downloadButton = _doc.getElementById('download'),
-                validationPattern = /([1-9])+/i;
+    _doc.head.appendChild(styleElement);
+    
+    var _formController = function () {
+        var columnsInput = _doc.getElementById('columns'),
+            gapInput = _doc.getElementById('gap'),
+            submitButton = _doc.getElementById('submit'),
+            downloadButton = _doc.getElementById('download'),
+            validationPattern = /([1-9])+/i;
 
-            var _validate = function () {
-                var columns = columnsInput.value,
-                    gap = gapInput.value;
+        var _validate = function () {
+            var columns = columnsInput.value,
+                gap = gapInput.value;
 
-                return validationPattern.test(columns) && validationPattern.test(gap);
-            };
+            return validationPattern.test(columns) && validationPattern.test(gap);
+        };
 
-            submitButton.addEventListener('click', function(e) {
-                styles.style.display = 'none';
-                grid.style.display = 'none';
-                downloadButton.classList.remove('visible');
-                downloadButton.href = '';
-                if (_validate()) {
-                    var result = gridbuilder.build({
-                        columns: +columnsInput.value,
-                        gap: +gapInput.value
-                    });
-                    // check if numbers are good
-                    if (result !== -1) {
-                        view(result);
-                        downloadButton.href = 'data:text/css;charset=UTF-8,' + result.styles;
-                        downloadButton.classList.add('visible');
-                    } else {
-                        alert('The amount of gap is too high or you need more columns');    
-                    }
+        submitButton.addEventListener('click', function(e) {
+            styles.style.display = 'none';
+            grid.style.display = 'none';
+            downloadButton.classList.remove('visible');
+            downloadButton.href = '';
+            if (_validate()) {
+                var result = gridbuilder.build({
+                    columns: +columnsInput.value,
+                    gap: +gapInput.value
+                });
+                // check if numbers are good
+                if (result !== -1) {
+                    view(result);
+                    downloadButton.href = 'data:text/css;charset=UTF-8,' + result.styles;
+                    downloadButton.classList.add('visible');
                 } else {
-                    alert('You must fill both fields with valid number values');
+                    alert('The amount of gap is too high or you need more columns');    
                 }
-                return false;
-            }, false);
-        };
+            } else {
+                alert('You must fill both fields with valid number values');
+            }
+            return false;
+        }, false);
+    };
 
-        var view = function (obj) {
-            styleElement.innerHTML = obj.styles;
-            styleShow.innerHTML = obj.styles;
-            gridShow.innerHTML = '';
-            gridShow.appendChild(obj.html);
-            styles.style.display = 'block';
-            grid.style.display = 'block';
-        };
+    var view = function (obj) {
+        styleElement.innerHTML = obj.styles;
+        styleShow.innerHTML = obj.styles;
+        gridShow.innerHTML = '';
+        gridShow.appendChild(obj.html);
+        styles.style.display = 'block';
+        grid.style.display = 'block';
+    };
 
-        _win.onload = _formController;
-    })();
+    _win.onload = _formController;
 
 })(window, document);
