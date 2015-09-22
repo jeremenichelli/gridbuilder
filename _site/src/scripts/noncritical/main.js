@@ -106,7 +106,6 @@
             };
 
             submitButton.addEventListener('click', function(e) {
-                e.preventDefault();
                 styles.style.display = 'none';
                 grid.style.display = 'none';
                 downloadButton.classList.remove('visible');
