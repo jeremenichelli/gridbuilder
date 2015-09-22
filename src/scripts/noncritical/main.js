@@ -82,7 +82,7 @@
     })();
 
     // view model controller
-    viewModel = (function () {
+    var viewModel = (function () {
         var styleElement = _doc.createElement('style'),
             styleShow = _doc.getElementById('styles-show'),
             gridShow = _doc.getElementById('grid-show'),
@@ -139,7 +139,7 @@
             grid.style.display = 'block';
         };
 
-        _formController();
+        _win.onload = _formController;
     })();
 
 })(window, document);
